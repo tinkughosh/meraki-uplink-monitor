@@ -1,0 +1,40 @@
+# =============================================================================
+# Meraki Uplink Alert - Suppression Rules
+# =============================================================================
+# Three rule types are supported.  Each line must start with NET:, KW:, or INTF:
+# Text after '#' on any line is a comment and is ignored by the script.
+# Matching is EXACT and CASE-SENSITIVE unless noted otherwise.
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# NET: Exact Network Name Match
+# Suppresses ALL alerts (all devices, all interfaces) from this network.
+# The value must match the network name exactly as it appears in the dashboard.
+# -----------------------------------------------------------------------------
+NET: Region-A - Site-1                      # CHG0012345 Monitoring disabled per request
+NET: Region-A - Lab Network                 # SR0011001 LAB Network
+NET: Region-B - Decommissioned Site         # CHG0012999 Site decommissioned
+
+
+# -----------------------------------------------------------------------------
+# KW: Keyword Match
+# Suppresses ALL alerts from any network whose name CONTAINS this keyword.
+# -----------------------------------------------------------------------------
+KW: Not-in-Prod                             # All networks with this keyword suppressed
+KW: Not-Live                                # All networks with this keyword suppressed
+KW: Test                                    # All test networks suppressed
+KW: Lab                                     # All lab networks suppressed
+
+
+# -----------------------------------------------------------------------------
+# INTF: Interface Suppression
+# Suppresses alerts for ONE specific interface on ONE specific device
+# in ONE specific network.  All other interfaces on that device still alert.
+# Format:  INTF: <NetworkName> - <DeviceName> - <Interface>  #optional note
+#
+# Tip: copy the three middle values straight from the email subject line:
+#   Meraki Uplink Failure Alert - <NetworkName> - <DeviceName> - <Interface> - <Status>
+# -----------------------------------------------------------------------------
+INTF: Region-A - Site-1 - SITE1-FW01 - wan2          # INC0012345 FWA secondary circuit
+INTF: Region-B - Site-2 - SITE2-FW02 - Cellular      # INC0013001 cellular backup, expected outages

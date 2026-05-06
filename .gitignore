@@ -1,0 +1,34 @@
+# Real config — must never be committed (contains API keys, passwords, real recipient lists)
+config.json
+
+# Real exception file in production
+exceptions.txt
+Meraki-Uplink-Down-Exception-List.txt
+
+# Cache files
+*_cache*.json
+*.backup.*
+
+# Log files
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Word/Office temp
+~$*

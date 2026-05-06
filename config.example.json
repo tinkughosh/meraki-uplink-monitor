@@ -1,0 +1,35 @@
+{
+    "meraki": {
+        "api_key": "YOUR_MERAKI_API_KEY_HERE",
+        "org_id": "YOUR_ORG_ID_HERE"
+    },
+    "paths": {
+        "cache_file": "/opt/meraki-uplink-monitor/inputs/uplink_status_cache.json",
+        "log_folder": "/opt/meraki-uplink-monitor/logs",
+        "exceptions_file": "/opt/meraki-uplink-monitor/inputs/exceptions.txt"
+    },
+    "logging": {
+        "max_log_files": 700
+    },
+    "smtp": {
+        "server": "smtp.example.com",
+        "port": 25,
+        "sender": "noreply@example.com",
+        "display_name": "Meraki Uplink Alerts"
+    },
+    "email_uplink_alerts": {
+        "recipients": ["network-ops@example.com", "noc@example.com"],
+        "cc": ["team-lead@example.com"],
+        "bcc": []
+    },
+    "email_cache_alerts": {
+        "recipients": ["network-automation@example.com"],
+        "cc": [],
+        "bcc": []
+    },
+    "servicenow": {
+        "endpoint": "https://your-instance.service-now.com/api/sn_em_connector/em/inbound_event?source=meraki",
+        "username": "YOUR_SERVICENOW_USERNAME",
+        "password": "YOUR_SERVICENOW_PASSWORD"
+    }
+}
